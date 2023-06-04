@@ -27,7 +27,11 @@ const ensureauthMiddleware = (
         });
       }
 
-      req.user = { userId: decoded.sub, contactId: decoded.sub };
+      res.locals = {
+        email: decoded.email,
+        id: decoded.sub,
+      };
+      // req.user = { userId: decoded.sub, contactId: decoded.sub };
 
       // console.log(req.user = );
 

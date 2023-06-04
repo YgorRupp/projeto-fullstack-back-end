@@ -4,6 +4,7 @@ import createUserService from "../services/users/createUser.service";
 import listUserService from "../services/users/listUser.service";
 import updateUserService from "../services/users/updateUser.service";
 import deleteUserService from "../services/users/deleteUser.service";
+// import retrieveUserService from "../services/users/retrieveUser.service";
 
 const createUserController = async (req: Request, res: Response) => {
   const userData: iUser = req.body;
@@ -19,16 +20,27 @@ const listUserController = async (req: Request, res: Response) => {
   return res.status(200).json(users);
 };
 
+// const retrieveUserController = async (
+//   req: Request,
+//   res: Response
+// ): Promise<Response> => {
+//   const userId = parseInt(req.params.id);
+
+//   const user = await retrieveUserService(userId);
+
+//   return res.status(200).json(user);
+// };
+
 const updateUserController = async (req: Request, res: Response) => {
   const userData: iUserUpdate = req.body;
-  const idUser = parseInt(req.params.id);
+  const idUser = res.locals.id;
 
   const updatedUser = await updateUserService(userData, idUser);
 
   return res.json(updatedUser);
 };
 const deleteUserController = async (req: Request, res: Response) => {
-  const idUser: number = parseInt(req.params.id);
+  const idUser: number = res.locals.id;
 
   await deleteUserService(idUser);
 
@@ -39,4 +51,5 @@ export {
   listUserController,
   updateUserController,
   deleteUserController,
+  // retrieveUserController,
 };

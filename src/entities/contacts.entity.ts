@@ -2,6 +2,8 @@ import {
   BeforeInsert,
   BeforeUpdate,
   Column,
+  CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -26,6 +28,12 @@ class Contact {
 
   @Column({ type: "varchar", length: 20 })
   phone: string;
+
+  @CreateDateColumn({ type: "date" })
+  created_at: string;
+
+  @DeleteDateColumn({ type: "date" })
+  deleted_at: string;
 
   @ManyToOne(() => User)
   @JoinColumn()
