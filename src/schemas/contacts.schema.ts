@@ -18,7 +18,7 @@ const createContactSchema = contactSchema
 
 const returnMultipleContacts = createContactSchema.array();
 
-const updateUserSchema = createContactSchema
+const updateContactSchema = createContactSchema
   .omit({
     id: true,
   })
@@ -28,5 +28,5 @@ export {
   contactSchema,
   createContactSchema,
   returnMultipleContacts,
-  updateUserSchema,
+  updateContactSchema,
 };

@@ -61,5 +61,5 @@ export {
   listContactController,
   retrieveContactsController,
   updateContactController,
-  // deleteContactController,
+  deleteContactController,
 };
