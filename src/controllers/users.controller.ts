@@ -33,14 +33,14 @@ const listUserController = async (req: Request, res: Response) => {
 
 const updateUserController = async (req: Request, res: Response) => {
   const userData: iUserUpdate = req.body;
-  const idUser = res.locals.id;
+  const idUser = parseInt(req.params.id);
 
   const updatedUser = await updateUserService(userData, idUser);
 
   return res.json(updatedUser);
 };
 const deleteUserController = async (req: Request, res: Response) => {
-  const idUser: number = res.locals.id;
+  const idUser: number = parseInt(req.params.id);
 
   await deleteUserService(idUser);
 

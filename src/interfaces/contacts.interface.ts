@@ -9,6 +9,6 @@ import {
 type iContact = z.infer<typeof contactSchema>;
 type iContactReturn = z.infer<typeof createContactSchema>;
 type iContacts = z.infer<typeof returnMultipleContacts>;
-type iContactUpdate = DeepPartial<iContactReturn>;
+type iContactUpdate = DeepPartial<iContact>;
 
 export { iContact, iContactReturn, iContacts, iContactUpdate };

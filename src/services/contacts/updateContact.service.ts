@@ -2,7 +2,10 @@ import { Repository } from "typeorm";
 import { iContactUpdate } from "../../interfaces/contacts.interface";
 import { Contact } from "../../entities/contacts.entity";
 import { AppDataSource } from "../../data-source";
-import { createContactSchema } from "../../schemas/contacts.schema";
+import {
+  createContactSchema,
+  updateContactSchema,
+} from "../../schemas/contacts.schema";
 
 const updateContactService = async (
   contactData: iContactUpdate,

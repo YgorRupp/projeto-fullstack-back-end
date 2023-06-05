@@ -26,7 +26,7 @@ contactsRoutes.get("", listContactController);
 
 contactsRoutes.get("/:id", ensureauthMiddleware, retrieveContactsController);
 contactsRoutes.patch(
-  "",
+  "/:id",
   ensureauthMiddleware,
   ensureDataIsValidMiddleware(updateContactSchema),
   retrieveContactsController

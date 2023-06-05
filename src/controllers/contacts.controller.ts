@@ -43,11 +43,11 @@ const retrieveContactsController = async (
 
 const updateContactController = async (req: Request, res: Response) => {
   const contactData: iContactUpdate = req.body;
-  const contactId = res.locals.id;
+  const contactId = parseInt(req.params.id);
 
-  const updatedUser = await updateContactService(contactData, contactId);
+  const updatedContact = await updateContactService(contactData, contactId);
 
-  return res.json(updatedUser);
+  return res.json(updatedContact);
 };
 const deleteContactController = async (req: Request, res: Response) => {
   const contactId: number = res.locals.id;
